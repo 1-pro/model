@@ -16,15 +16,14 @@ const UserSchema = new Schema({
     updatedAt: { type: Date, default: Date.now }
 });
 const Institution = new Schema({
-    institutionName: { type: String},
-    institutionType: { type: String, enum: ['polytechnique', 'University','monotechnique','college of education'], required },    name: { type: String, required: true },
-    phoneNumber: { type: Number, required: true },
+    name: { type: String},
+    type: { type: String, enum: ['polytechnique', 'University','monotechnique','college of education'], required },    name: { type: String, required: true },
     researchHistory: { type: String, required: true },
 });
 const researchHistory = new Schema({
-    researchType: { type: String, enum: ['chemistry', 'business','management'], required:true},
+    type: { type: String, enum: ['chemistry', 'business','management'], required:true},
     name: { type: String, required: true },
-    previousResearchHistory: { type: String, enum: ['completed','not completed' ], required:true},
+    previousResearch: { type: String, enum: ['completed','not completed' ], required:true},
 });
 
 UserSchema.pre('save', function (next) {
